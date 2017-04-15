@@ -104,4 +104,25 @@ Mojolicious plugin.
 
 Version 0.001
 
+=head1 SEE ALSO
+
+L<Mojolicious>
+
+L<Mojolicious::Plugin::RenderFile>
+
+=head1 AUTHOR
+
+Михаил Че (Mikhail Che), C<< <mche[-at-]cpan.org> >>
+
+=head1 BUGS / CONTRIBUTING
+
+Please report any bugs or feature requests at L<https://github.com/mche/Mojolicious-Plugin-StaticAttachment/issues>. Pull requests also welcome.
+
+=head1 COPYRIGHT
+
+Copyright 2017 Mikhail Che.
+
+This library is free software; you can redistribute it and/or modify
+it under the same terms as Perl itself.
+
 =cut
