@@ -1,8 +1,9 @@
 package Mojolicious::Plugin::StaticAttachment;
 use Mojo::Base 'Mojolicious::Plugin';
 use File::Basename;
-use Mojo::Util qw'quote url_unescape';
+use Mojo::Util qw'quote encode decode url_unescape';#
 #~ use Encode qw( encode );
+#~ use URI::Escape;
 
 has [qw'app'];
 has paths => sub { {}; };
@@ -11,16 +12,17 @@ sub register {
   my ($self, $app, $args) = @_;
   $self->app($app)->parse_paths(delete $args->{paths});
   
-  #~ warn $app->dumper($self->paths);
+  $app->log->debug( $app->dumper($self->paths) );
   
   $app->hook(after_static => sub {
     my $c = shift;
     my $path = url_unescape $c->req->url->path;
-    utf8::decode($path)
-      unless utf8::is_utf8($path);
+    #~ utf8::encode($path)
+      #~ unless utf8::is_utf8($path);
     #~ warn url_unescape $path;
+    #~ $app->log->debug($path);
     return
-      unless my $conf = $self->paths->{$path};
+      unless my $conf = $self->paths->{$path} || $self->paths->{decode 'UTF-8', $path};
     
     #~ warn $path, %$conf;
     
@@ -64,10 +66,14 @@ sub parse_paths {
     utf8::encode($conf->{filename})
       if utf8::is_utf8($conf->{filename});
     
+    utf8::encode($path)
+      if utf8::is_utf8($path);
+    
     #~ warn $conf->{filename};
     $conf->{content_type} ||= $content_type
       if $content_type;
-    $paths->{$path} = $conf;
+    $paths->{$path} = $conf;#{encode 'UTF-8', $path} 
+    
   }
   return $self;
   
