@@ -73,7 +73,7 @@ sub parse_paths {
   
 }
 
-our $VERSION=0.001; # End of Mojolicious::Plugin::StaticAttachment
+our $VERSION=0.002; # End of Mojolicious::Plugin::StaticAttachment
 
 =pod
 
@@ -102,7 +102,7 @@ Mojolicious plugin.
 
 =head1 VERSION
 
-Version 0.001
+Version 0.002
 
 =head1 SEE ALSO
 
