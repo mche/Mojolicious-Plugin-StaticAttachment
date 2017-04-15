@@ -95,7 +95,10 @@ Mojolicious plugin.
 
 =head1 SYNOPSIS
 
-  $app->plugin('StaticAttachment' => paths => ['/foo.txt', 'bar.portable.doc.format'=>{content_type=>'application/pdf', filename=>"файлик.pdf"}])
+  $app->plugin('StaticAttachment'
+    => paths => [
+      '/foo.txt',
+      'bar.portable.doc.format'=>{content_type=>'application/pdf', filename=>"файлик.pdf"}])
 
 =head1 VERSION
 
