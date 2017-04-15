@@ -12,7 +12,7 @@ sub register {
   my ($self, $app, $args) = @_;
   $self->app($app)->parse_paths(delete $args->{paths});
   
-  $app->log->debug( $app->dumper($self->paths) );
+  #~ $app->log->debug( $app->dumper($self->paths) );
   
   $app->hook(after_static => sub {
     my $c = shift;
