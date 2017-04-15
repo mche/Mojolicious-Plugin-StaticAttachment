@@ -19,7 +19,7 @@
 #     MIN_PERL_VERSION => q[5.01]
 #     NAME => q[Mojolicious::Plugin::StaticAttachment]
 #     PL_FILES => {  }
-#     PREREQ_PM => { File::Basename=>q[0], Test::More=>q[0] }
+#     PREREQ_PM => { Mojolicious=>q[7], Test::More=>q[0] }
 #     TEST_REQUIRES => {  }
 #     VERSION_FROM => q[lib/Mojolicious/Plugin/StaticAttachment.pm]
 #     dist => { COMPRESS=>q[gzip -9f], SUFFIX=>q[gz] }
@@ -61,11 +61,11 @@ DIRFILESEP = /
 DFSEP = $(DIRFILESEP)
 NAME = Mojolicious::Plugin::StaticAttachment
 NAME_SYM = Mojolicious_Plugin_StaticAttachment
-VERSION = 0.001
+VERSION = 0.002
 VERSION_MACRO = VERSION
-VERSION_SYM = 0_001
+VERSION_SYM = 0_002
 DEFINE_VERSION = -D$(VERSION_MACRO)=\"$(VERSION)\"
-XS_VERSION = 0.001
+XS_VERSION = 0.002
 XS_VERSION_MACRO = XS_VERSION
 XS_DEFINE_VERSION = -D$(XS_VERSION_MACRO)=\"$(XS_VERSION)\"
 INST_ARCHLIB = blib/arch
@@ -259,7 +259,7 @@ RCS_LABEL = rcs -Nv$(VERSION_SYM): -q
 DIST_CP = best
 DIST_DEFAULT = tardist
 DISTNAME = Mojolicious-Plugin-StaticAttachment
-DISTVNAME = Mojolicious-Plugin-StaticAttachment-0.001
+DISTVNAME = Mojolicious-Plugin-StaticAttachment-0.002
 
 
 # --- MakeMaker macro section:
@@ -505,9 +505,9 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '    - t' >> META_new.yml
 	$(NOECHO) $(ECHO) '    - inc' >> META_new.yml
 	$(NOECHO) $(ECHO) 'requires:' >> META_new.yml
-	$(NOECHO) $(ECHO) '  File::Basename: '\''0'\''' >> META_new.yml
+	$(NOECHO) $(ECHO) '  Mojolicious: '\''7'\''' >> META_new.yml
 	$(NOECHO) $(ECHO) '  perl: '\''5.01'\''' >> META_new.yml
-	$(NOECHO) $(ECHO) 'version: 0.001' >> META_new.yml
+	$(NOECHO) $(ECHO) 'version: 0.002' >> META_new.yml
 	-$(NOECHO) $(MV) META_new.yml $(DISTVNAME)/META.yml
 	$(NOECHO) $(ECHO) Generating META.json
 	$(NOECHO) $(ECHO) '{' > META_new.json
@@ -544,13 +544,13 @@ metafile : create_distdir
 	$(NOECHO) $(ECHO) '      },' >> META_new.json
 	$(NOECHO) $(ECHO) '      "runtime" : {' >> META_new.json
 	$(NOECHO) $(ECHO) '         "requires" : {' >> META_new.json
-	$(NOECHO) $(ECHO) '            "File::Basename" : "0",' >> META_new.json
+	$(NOECHO) $(ECHO) '            "Mojolicious" : "7",' >> META_new.json
 	$(NOECHO) $(ECHO) '            "perl" : "5.01"' >> META_new.json
 	$(NOECHO) $(ECHO) '         }' >> META_new.json
 	$(NOECHO) $(ECHO) '      }' >> META_new.json
 	$(NOECHO) $(ECHO) '   },' >> META_new.json
 	$(NOECHO) $(ECHO) '   "release_status" : "stable",' >> META_new.json
-	$(NOECHO) $(ECHO) '   "version" : 0.001' >> META_new.json
+	$(NOECHO) $(ECHO) '   "version" : 0.002' >> META_new.json
 	$(NOECHO) $(ECHO) '}' >> META_new.json
 	-$(NOECHO) $(MV) META_new.json $(DISTVNAME)/META.json
 
@@ -859,12 +859,12 @@ testdb_static :: static pure_all
 # --- MakeMaker ppd section:
 # Creates a PPD (Perl Package Description) for a binary distribution.
 ppd :
-	$(NOECHO) $(ECHO) '<SOFTPKG NAME="Mojolicious-Plugin-StaticAttachment" VERSION="0.001">' > Mojolicious-Plugin-StaticAttachment.ppd
+	$(NOECHO) $(ECHO) '<SOFTPKG NAME="Mojolicious-Plugin-StaticAttachment" VERSION="0.002">' > Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '    <ABSTRACT>Add '\''Content-Disposition'\'' header for specified statics.</ABSTRACT>' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '    <AUTHOR>ÐÐ¸ÑÐ°Ð¸Ð» Ð§Ðµ (Mikhail Che) &lt;mche[-at-]cpan.org&gt;</AUTHOR>' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '    <IMPLEMENTATION>' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '        <PERLCORE VERSION="5,01,0,0" />' >> Mojolicious-Plugin-StaticAttachment.ppd
-	$(NOECHO) $(ECHO) '        <REQUIRE NAME="File::Basename" />' >> Mojolicious-Plugin-StaticAttachment.ppd
+	$(NOECHO) $(ECHO) '        <REQUIRE NAME="Mojolicious::" VERSION="7" />' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '        <ARCHITECTURE NAME="x86_64-linux-5.22" />' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '        <CODEBASE HREF="" />' >> Mojolicious-Plugin-StaticAttachment.ppd
 	$(NOECHO) $(ECHO) '    </IMPLEMENTATION>' >> Mojolicious-Plugin-StaticAttachment.ppd
