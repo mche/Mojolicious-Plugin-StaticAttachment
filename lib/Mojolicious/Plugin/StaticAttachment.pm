@@ -1,9 +1,8 @@
 package Mojolicious::Plugin::StaticAttachment;
 use Mojo::Base 'Mojolicious::Plugin';
 use File::Basename;
-use Mojo::Util qw'quote encode decode url_unescape';#
+use Mojo::Util qw'quote decode url_unescape';#
 #~ use Encode qw( encode );
-#~ use URI::Escape;
 
 has [qw'app'];
 has paths => sub { {}; };
@@ -79,7 +78,7 @@ sub parse_paths {
   
 }
 
-our $VERSION=0.002; # End of Mojolicious::Plugin::StaticAttachment
+our $VERSION=0.003; # End of Mojolicious::Plugin::StaticAttachment
 
 =pod
 
@@ -108,7 +107,7 @@ Mojolicious plugin.
 
 =head1 VERSION
 
-Version 0.002
+Version 0.003
 
 =head1 SEE ALSO
 
